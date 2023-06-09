@@ -5,6 +5,8 @@ const mongoose = require('mongoose');
 const singers = require('./routes/singers');
 const albums = require('./routes/albums');
 const songs = require('./routes/songs');
+const album_on_singer = require('./routes/album_on_singer');
+const song_on_album = require('./routes/song_on_album');
 
 const app = express();
 
@@ -14,6 +16,8 @@ app.use(express.urlencoded({extended:true}));
 app.use('/api/singers', singers);
 app.use('/api/albums', albums);
 app.use('/api/songs', songs);
+app.use('/api/album_on_singer', album_on_singer);
+app.use('/api/song_on_album', song_on_album);
 
 mongoose.connect("mongodb://127.0.0.1/music")
             .then(()=> console.log('¡Conectado a MongoDB!'))
